@@ -1,6 +1,7 @@
 package com.example.grocify;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,7 +52,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View view) {
                 Log.d(TAG,"onClick: clicked on:");
-                Toast.makeText(mContext, mImages.get(position), Toast.LENGTH_LONG).show();
+                Toast.makeText(mContext, mNames.get(position), Toast.LENGTH_LONG).show();
+                Intent i = new Intent(mContext, GalleryActivity.class);
+                i.putExtra("image_url", mImages.get(position));
+                i.putExtra("image_name", mNames.get(position));
+                mContext.startActivity(i);
             }
         });
     }

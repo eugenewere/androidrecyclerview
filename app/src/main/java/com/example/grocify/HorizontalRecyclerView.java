@@ -5,32 +5,20 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "MainActivity";
-
+public class HorizontalRecyclerView extends AppCompatActivity {
     private ArrayList<String> mNames = new ArrayList<>();
     private  ArrayList<String> mImageUrlss = new ArrayList<>();
     private Context mContext;
-    public Button mButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        mButton = findViewById(R.id.nextbutton);
-        mButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goToNextLayout();
-            }
-        });
+        setContentView(R.layout.mainactivityfile);
         initImageBitmaps();
     }
     private void initImageBitmaps(){
@@ -60,13 +48,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void initRecyclerView(){
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(mNames, mImageUrlss, this);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-    }
-    private void goToNextLayout(){
-        Intent i = new Intent(MainActivity.this, HorizontalRecyclerView.class);
-        startActivity(i);
+        LinearLayoutManager layoutmanager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false);
+        RecyclerView rec = findViewById(R.id.recycler_view_horizontal);
+        rec.setLayoutManager(layoutmanager);
+        HorizonatalRecyclerViewAdapter adapter = new HorizonatalRecyclerViewAdapter(this, mNames, mImageUrlss);
+        rec.setAdapter( adapter);
+
     }
 }
