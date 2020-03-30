@@ -5,17 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-   <androidx.appcompat.widget.AppCompatButton
-       android:layout_width="wrap_content"
-       android:padding="5dp"
-       android:id="@+id/nextbutton"
-       android:text="Next page"
-       android:layout_height="50dp"/>
+
    <androidx.recyclerview.widget.RecyclerView
        android:layout_width="match_parent"
        android:id="@+id/recycler_view"
        android:layout_height="match_parent">
 
    </androidx.recyclerview.widget.RecyclerView>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+      <androidx.appcompat.widget.AppCompatButton
+          android:layout_width="wrap_content"
+          android:padding="5dp"
+          android:id="@+id/nextbutton"
+          android:text="Next page"
+          android:layout_height="50dp"/>
+      <androidx.appcompat.widget.AppCompatButton
+          android:layout_width="wrap_content"
+          android:padding="5dp"
+          android:id="@+id/staggerdlayoutbtn"
+          android:text="Staggered"
+          android:layout_height="50dp"/>
+
+   </LinearLayout>
 
 </RelativeLayout>

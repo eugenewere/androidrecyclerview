@@ -18,13 +18,20 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> mNames = new ArrayList<>();
     private  ArrayList<String> mImageUrlss = new ArrayList<>();
     private Context mContext;
-    public Button mButton;
+    public Button mButton, mStaggeredBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mButton = findViewById(R.id.nextbutton);
+        mStaggeredBtn = findViewById(R.id.staggerdlayoutbtn);
+        mStaggeredBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToStaggerdLayout();
+            }
+        });
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,6 +40,12 @@ public class MainActivity extends AppCompatActivity {
         });
         initImageBitmaps();
     }
+
+    private void goToStaggerdLayout() {
+        Intent i = new Intent(MainActivity.this, StaggeredActivity.class);
+        startActivity(i);
+    }
+
     private void initImageBitmaps(){
         mImageUrlss.add("https://zdnet2.cbsistatic.com/hub/i/2020/03/09/53a31682-ecaa-48df-9fd5-f4527f73ea11/brave.png");
         mNames.add("Eugene");
