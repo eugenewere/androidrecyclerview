@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> mNames = new ArrayList<>();
     private  ArrayList<String> mImageUrlss = new ArrayList<>();
     private Context mContext;
-    public Button mButton, mStaggeredBtn;
+    public Button mButton, mStaggeredBtn, viewpagger;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mButton = findViewById(R.id.nextbutton);
         mStaggeredBtn = findViewById(R.id.staggerdlayoutbtn);
+        viewpagger= findViewById(R.id.viewpagerbtn);
+
+
+        viewpagger.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToViewPagger();
+            }
+        });
         mStaggeredBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,6 +49,12 @@ public class MainActivity extends AppCompatActivity {
         });
         initImageBitmaps();
     }
+
+    private void goToViewPagger() {
+        Intent i = new Intent(MainActivity.this, SwipeViewPager.class);
+        startActivity(i);
+    }
+
 
     private void goToStaggerdLayout() {
         Intent i = new Intent(MainActivity.this, StaggeredActivity.class);

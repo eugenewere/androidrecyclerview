@@ -27,6 +27,15 @@
           android:id="@+id/staggerdlayoutbtn"
           android:text="Staggered"
           android:layout_height="50dp"/>
+      <androidx.appcompat.widget.AppCompatButton
+          android:layout_width="wrap_content"
+          android:padding="5dp"
+          android:id="@+id/viewpagerbtn"
+          android:textColor="@color/colorBluishwhite"
+          android:background="@color/blue"
+          android:text="Viewpager"
+          android:layout_height="50dp"/>
+
 
    </LinearLayout>
 
