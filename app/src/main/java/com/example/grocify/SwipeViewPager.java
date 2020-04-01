@@ -29,6 +29,7 @@ public class SwipeViewPager extends AppCompatActivity {
         ArrayList<Fragment> fragments = new ArrayList<>();
         Hat[] hats = Hats.getHats();
         for (Hat hat: hats){
+
             ViewPagerItemFragment fragment = ViewPagerItemFragment.getInstance(hat);
             fragments.add(fragment);
         }
